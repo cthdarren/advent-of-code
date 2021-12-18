@@ -1,6 +1,5 @@
 
 def returnBoard():
-    numbers = [18,99,39,89,0,40,52,72,61,77,69,51,30,83,20,65,93,88,29,22,14,82,53,41,76,79,46,78,56,57,24,36,38,11,50,1,19,26,70,4,54,3,84,33,15,21,9,58,64,85,10,66,17,43,31,27,2,5,95,96,16,97,12,34,74,67,86,23,49,8,59,45,68,91,25,48,13,28,81,94,92,42,7,37,75,32,6,60,63,35,62,98,90,47,87,73,44,71,55,80]
 
     boards = [[]]
     lastBoard = False
@@ -27,9 +26,7 @@ def returnBoard():
                 if num in row:
                     row[row.index(num)] = "X"
                 if row.count("X") == 5:
-                    if lastBoard:
-                        return board, num
-                    boards[index] = 0
+                    return board, num
                 elif "X" in row:
                     for i,x in enumerate(row):
                         if firstRow:
@@ -50,16 +47,15 @@ def returnBoard():
                 if firstRow:
                     firstRow = False
             if len(commonColumns) > 0:
-                if lastBoard:
-                    return board, num
-                boards[index] = 0
-
-board, num = returnBoard()
+                return board, num
+board, numRoll = returnBoard()
 
 result = 0
 for row in board:
-    for values in row:
-        if values != "X":
-            result += int(values)
+    for num in row:
+        if num == "X":
+            continue
+        result += int(num)
 
-print(result * int(num))
+print(result*int(numRoll))
+
