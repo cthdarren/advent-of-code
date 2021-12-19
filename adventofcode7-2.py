@@ -12,3 +12,4 @@ for x in range(max(numberList)):
         totalFuel = temp
         
 print(totalFuel)
+
